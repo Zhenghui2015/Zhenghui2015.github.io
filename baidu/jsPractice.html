@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>IFE JS Tasks</title>
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<body>
+		<div class="container">
+			<div class="row">
+				<h3>IFE JS task1 notes</h3>
+				<ol>
+					<li><p>Use <i>"obj.innerHTML = val"</i> to set content of a <b>span</b> </p> </li>
+					<li><p>Remember "ENTER" can call the function too, use <i>onkeyup=13</i> to judge</p> </li>
+				</ol>
+			</div>
+
+			<div class="row">
+				<h4>Demo</h4>
+				<label>Please input aqi of today: <input id="aqi-input" type="text" class="form-control"></label>
+				<button id="button" class="btn btn-default">Submit</button>
+			</div>
+			<div class="row">
+				Your input is: <span id="aqi-display">No Input!</span> 
+			</div>
+
+		</div>
+		<script type="text/javascript">
+			var $ = function(id){
+				return document.getElementById(id);
+			}
+
+			var handler = function(){
+				var num = parseInt($("aqi-input").value)
+				if ((!isNaN(num)) && num >= 0 && num <= 1000) {
+					$("aqi-display").innerHTML = num; 
+				} else {
+					alert("Invalid input! Please enter 0-1000 integer!");
+				}
+			}
+
+			$("button").onclick = function(){
+				handler();
+			}
+
+			// pass 'event' as parameter can get valuable information about this evenr
+			$("aqi-input").onkeyup = function(event){
+				if(event.keyCode == 13) { // If "Enter" key is pressed
+					handler();
+				}
+			}
+
+			function submitRes(){
+				var text = document.getElementById("aqi-input").value;
+				document.getElementById("aqi-display").textContent = text;
+			}
+		</script>
+	</body>
+</html>
