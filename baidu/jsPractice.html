@@ -4,9 +4,15 @@
 		<meta charset="utf-8">
 		<title>IFE JS Tasks</title>
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
-	<body onload = "init()">
+	<body>
 		<div class="container">
-			<h3>IFE JS task1</h3>
+            <div class="row">
+            	<h3>IFE JS task1</h3>
+            </div>
+            <div class="row">
+            	<h4>Requirement</h4>
+            	<p> Input Aqi, click the button to submit result</p>
+            </div>
 			<div class="row">
 				<h4>note</h4>
 				<ol>
@@ -14,7 +20,6 @@
 					<li><p>Remember "ENTER" can call the function too, use <i>onkeyup=13</i> to judge</p> </li>
 				</ol>
 			</div>
-
 			<div class="row">
 				<h4>Demo</h4>
 				<label>Please input aqi of today: <input id="aqi-input" type="text" class="form-control"></label>
@@ -24,86 +29,41 @@
 				Your input is: <span id="aqi-display">No Input!</span> 
 			</div>
 
-			<h3>IFE JS taks2</h3>
+            <div class="row">
+                <h3>IFE JS taks2</h3>
+            </div>
+            <div class="row">
+            	<h4>Requirement</h4>
+            	<p>Read AQI of different cities from <i>ul</i> list, sort and dynamic generate result lists on the website</p>
+            </div>
 			<div class="row">
 				<h4>note</h4>
 				<ol>
 					<li> <p>array method <b>filter</b> to select emlements in array according to certain condition</p> </li>
 					<li> <p>array method <b>sort</b> to sort element in array</p> </li>
 					<li> <p>dynamic add DOM element</p> </li>
+					<li> <p>read content from list and generate content of lists</p> </li>
 				</ol>
 			</div>
-			<div class="row">
-				<h4>Demo</h4>
-				<h5>Polluted Cities list</h5>
-				<ul id="aqi-list">
-				</ul>
-			</div>
+            <div class="row">
+                <h4>Demo</h4>
+                <ul id="source">
+                	<li>Beijing air quality: <b>90</b> </li>
+                	<li>Shanghai air quality: <b>70</b> </li>
+                	<li>Tianjin air quality: <b>80</b> </li>
+                	<li>Guangzhou air quality: <b>50</b> </li>
+                	<li>Shenzhen air quality: <b>40</b> </li>
+                	<li>Fuzhou air quality: <b>32</b> </li>
+                	<li>Chengdu air quality: <b>90</b> </li>
+                </ul>
             
-		</div>
-		<script type="text/javascript">
-			/************************************************************************/
-			var $ = function(id){
-				return document.getElementById(id);
-			}
+            <ul id="resort">
+            	
+            </ul>
 
-			var handler = function(){
-				var num = parseInt($("aqi-input").value)
-				if ((!isNaN(num)) && num >= 0 && num <= 1000) {
-					$("aqi-display").innerHTML = num; 
-				} else {
-					alert("Invalid input! Please enter 0-1000 integer!");
-				}
-			}
-
-			$("button").onclick = function(){
-				handler();
-			}
-
-			// pass 'event' as parameter can get valuable information about this evenr
-			$("aqi-input").onkeyup = function(event){
-				if(event.keyCode == 13) { // If "Enter" key is pressed
-					handler();
-				}
-			}
-
-			function submitRes(){
-				var text = document.getElementById("aqi-input").value;
-				document.getElementById("aqi-display").textContent = text;
-			}
-
-			/************************************************************************/
-			var aqiData = [
-				["Beijing", 90],
-				["Shanghai", 50],
-				["Fuzhou", 10],
-				["Guangzhou", 50],
-				["Chengdu", 90],
-				["Xian", 100]
-			];
-
-			function init(){
-				console.log("This function is called!");
-
-				// Use filter function to select all cities larger than 60
-				var selectedData = aqiData.filter(function(item){
-					return item[1] > 60;
-				});
-
-				// use sort algorithm to sort array
-				selectedData.sort(function(a, b){
-					return b[1]-a[1]
-				});
-
-				for(var i = 0; i < selectedData.length; i++){
-					var text = selectedData[i][0] + ": " + selectedData[i][1].toString();
-					var li = document.createElement("li");
-					li.appendChild(document.createTextNode(text));
-					$("aqi-list").appendChild(li);
-				}
-			}
-
-
-		</script>
+            <button id="sort-btn">Sort</button>
+            </div>
+		</div>	
+		<script type="text/javascript" src="task.js"></script>	
 	</body>
 </html>
