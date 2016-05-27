@@ -4,10 +4,11 @@
 		<meta charset="utf-8">
 		<title>IFE JS Tasks</title>
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
-	<body>
+	<body onload = "init()">
 		<div class="container">
+			<h3>IFE JS task1</h3>
 			<div class="row">
-				<h3>IFE JS task1 notes</h3>
+				<h4>note</h4>
 				<ol>
 					<li><p>Use <i>"obj.innerHTML = val"</i> to set content of a <b>span</b> </p> </li>
 					<li><p>Remember "ENTER" can call the function too, use <i>onkeyup=13</i> to judge</p> </li>
@@ -23,8 +24,25 @@
 				Your input is: <span id="aqi-display">No Input!</span> 
 			</div>
 
+			<h3>IFE JS taks2</h3>
+			<div class="row">
+				<h4>note</h4>
+				<ol>
+					<li> <p>array method <b>filter</b> to select emlements in array according to certain condition</p> </li>
+					<li> <p>array method <b>sort</b> to sort element in array</p> </li>
+					<li> <p>dynamic add DOM element</p> </li>
+				</ol>
+			</div>
+			<div class="row">
+				<h4>Demo</h4>
+				<h5>Polluted Cities list</h5>
+				<ul id="aqi-list">
+				</ul>
+			</div>
+            
 		</div>
 		<script type="text/javascript">
+			/************************************************************************/
 			var $ = function(id){
 				return document.getElementById(id);
 			}
@@ -53,6 +71,39 @@
 				var text = document.getElementById("aqi-input").value;
 				document.getElementById("aqi-display").textContent = text;
 			}
+
+			/************************************************************************/
+			var aqiData = [
+				["Beijing", 90],
+				["Shanghai", 50],
+				["Fuzhou", 10],
+				["Guangzhou", 50],
+				["Chengdu", 90],
+				["Xian", 100]
+			];
+
+			function init(){
+				console.log("This function is called!");
+
+				// Use filter function to select all cities larger than 60
+				var selectedData = aqiData.filter(function(item){
+					return item[1] > 60;
+				});
+
+				// use sort algorithm to sort array
+				selectedData.sort(function(a, b){
+					return b[1]-a[1]
+				});
+
+				for(var i = 0; i < selectedData.length; i++){
+					var text = selectedData[i][0] + ": " + selectedData[i][1].toString();
+					var li = document.createElement("li");
+					li.appendChild(document.createTextNode(text));
+					$("aqi-list").appendChild(li);
+				}
+			}
+
+
 		</script>
 	</body>
 </html>
