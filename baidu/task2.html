@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>IFE JS Tasks</title>
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<script type="text/javascript" src="task2.js"></script>	
+	<body onload="init()">
+		<div class="container">
+            <div class="row">
+            	<h3>IFE JS task3</h3>
+            </div>
+            <div class="row">
+            	<h4>Requirement</h4>
+            	<p> In this task, user can input city's AQI. After validation, the result will show on a list. Detailed requirements are listed below:</p>
+            	<ol>
+            		<li>City name and AQI should removed extra space</li>
+            		<li>There will be alert for unvalidate input</li>
+            		<li>User can click "delete" button to remove a row</li>
+            	</ol>
+            </div>
+			<div class="row">
+				<h4>note</h4>
+				<ol>
+					<li> use <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener">addEventListener()</a> to bind function to a event</li>
+					<li> use <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset">dataset</a> to define data needed in DOM</li>
+					<li>dynamic generate table and delete rows</li>
+				</ol>
+			</div>
+			<div class="row">
+				<h4>Demo</h4>
+				<label>City name: <input id="aqi-city-input" type="text" class="form-control"></label>
+				<label>AQI index: <input id="aqi-value-input" type="text" > </label>
+				<button id="add-bnt" class="btn btn-default">Submit</button>
+				<table id="aqi-table" class="table table-bordered"></table>
+			</div>
+		</div>
+	</body>
+</html>
