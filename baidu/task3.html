@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>IFE JS Tasks</title>
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<script type="text/javascript" src="task3.js"></script>	
+	<body onload="init()">
+		<div class="container">
+            <div class="row">
+            	<h3>IFE JS task3</h3>
+            </div>
+            <div class="row">
+            	<h4>Requirement</h4>
+            	<p> In this task, user can input city's AQI. After validation, the result will show on a list. Detailed requirements are listed below:</p>
+            	<ol>
+            		<li>City name and AQI should removed extra space</li>
+            		<li>There will be alert for unvalidate input</li>
+            		<li>User can click "delete" button to remove a row</li>
+            	</ol>
+            </div>
+			<div class="row">
+				<h4>Note</h4>
+				<ol>
+					
+				</ol>
+			</div>
+			<div class="row">
+				<h4>Demo</h4>
+				<fieldset id="form-gra-time">
+					<legend>Please select time range unit:</legend>
+					<label>day<input type="radio" checked="checked" name="gra-time" value="day"> </label>
+					<label>week<input type="radio" name="gra-time" value="week"> </label>
+					<label>month<input type="radio" name="gra-time" value="month"> </label>
+				</fieldset>
+
+				<fieldset>
+					<legend>Please select a city:</legend>
+					<select id="city-select">
+					</select>
+				</fieldset>
+
+				<div class="aqi-chart-wrap">
+					<canvas id="char-bar"></canvas>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
